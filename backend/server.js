@@ -20,7 +20,7 @@ const port = process.env.PORT || 4000;
 // Allow multiple origins
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://green-cart-beryl.vercel.app/"
+    "https://green-cart-beryl.vercel.app"
 ]
 
 
