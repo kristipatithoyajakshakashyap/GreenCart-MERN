@@ -1,7 +1,7 @@
-import Order from "../models/Order.js";
-import User from "../models/User.js";
-import Product from "../models/Product.js";
 import stripe from 'stripe';
+import Order from "../models/Order.js";
+import Product from "../models/Product.js";
+import User from "../models/User.js";
 
 // Place order COD
 export const placeOrderCOD = async (req, res) => {
@@ -121,7 +121,7 @@ export const stripeWebhooks = async (req, res) => {
             const { orderId, userId } = session.data[0].metadata;
             //  Make payment as paid
             await Order.findByIdAndUpdate(orderId, { isPaid: true })
-            await User.findByIdAndUpdate(userId, { cartItem: {} })
+            await User.findByIdAndUpdate(userId, { cartItems: {} })
             break;
         }
         case "payment_intent.payment_failed": {
